@@ -1,5 +1,5 @@
 /**
- * AI Project Doctor вЂ” the right-sidebar panel.
+ * AI Project Doctor — the right-sidebar panel.
  *
  * Scans a project through the Host's panel API, shows the findings, and applies the
  * reversible fixes the Host prepared. All filesystem work stays on the Host; this
@@ -34,8 +34,8 @@ window.__ModuleLoader__.load({
       '.pdr-button{appearance:none;font:inherit;font-size:12px;line-height:1.4;padding:5px 10px;border-radius:8px;border:1px solid var(--dsw-alias-border-l1);background:transparent;color:var(--dsw-alias-label-primary);cursor:pointer;white-space:nowrap}',
       '.pdr-button:hover:enabled{background:var(--dsw-alias-interactive-bg-hover)}',
       '.pdr-button:disabled{opacity:.5;cursor:default}',
-      '.pdr-primary{border-color:transparent;background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-on-color)}',
-      '.pdr-primary:hover:enabled{background:var(--dsw-alias-button-primary-hover)}',
+      '.pdr-primary{border-color:transparent;background:var(--dsw-alias-state-business-primary);color:var(--dsw-alias-label-on-color)}',
+      '.pdr-primary:hover:enabled{filter:brightness(1.12)}',
       '.pdr-small{font-size:11px;padding:2px 7px;border-radius:6px}',
       '.pdr-scroll{flex:1;min-height:0;overflow-y:auto;padding:0 14px 20px;display:flex;flex-direction:column;gap:12px}',
       '.pdr-card{border:1px solid var(--dsw-alias-border-l1);border-radius:12px;background:var(--dsw-alias-card-fill);padding:10px 12px;display:flex;flex-direction:column;gap:8px}',
@@ -89,12 +89,12 @@ window.__ModuleLoader__.load({
       'subtitle': 'Read-only diagnostics with reversible fixes',
       'path.placeholder': 'Absolute project path, for example C:\\projects\\app',
       'action.scan': 'Scan',
-      'action.scanning': 'ScanningвЂ¦',
+      'action.scanning': 'Scanning…',
       'action.rescan': 'Rescan',
       'action.apply': 'Fix selected',
-      'action.applying': 'FixingвЂ¦',
+      'action.applying': 'Fixing…',
       'action.rollback': 'Roll back',
-      'action.rollingback': 'Rolling backвЂ¦',
+      'action.rollingback': 'Rolling back…',
       'action.selectAll': 'Select all',
       'score.caption': 'Health score',
       'metric.files': 'files',
@@ -123,44 +123,44 @@ window.__ModuleLoader__.load({
     };
 
     const ru = {
-      'tab.title': 'Р”РѕРєС‚РѕСЂ',
-      'tab.description': 'РЎРєР°РЅРёСЂРѕРІР°РЅРёРµ РїСЂРѕРµРєС‚Р°, РѕС†РµРЅРєР° Р·РґРѕСЂРѕРІСЊСЏ Рё РёСЃРїСЂР°РІР»РµРЅРёСЏ СЃ Р±СЌРєР°РїР°РјРё.',
-      'open.tooltip': 'РћС‚РєСЂС‹С‚СЊ AI Project Doctor',
+      'tab.title': 'Доктор',
+      'tab.description': 'Сканирование проекта, оценка здоровья и исправления с бэкапами.',
+      'open.tooltip': 'Открыть AI Project Doctor',
       'title': 'AI Project Doctor',
-      'subtitle': 'Р”РёР°РіРЅРѕСЃС‚РёРєР° С‡С‚РµРЅРёРµРј Рё РѕР±СЂР°С‚РёРјС‹Рµ РёСЃРїСЂР°РІР»РµРЅРёСЏ',
-      'path.placeholder': 'РђР±СЃРѕР»СЋС‚РЅС‹Р№ РїСѓС‚СЊ Рє РїСЂРѕРµРєС‚Сѓ, РЅР°РїСЂРёРјРµСЂ C:\\projects\\app',
-      'action.scan': 'РЎРєР°РЅРёСЂРѕРІР°С‚СЊ',
-      'action.scanning': 'РЎРєР°РЅРёСЂРѕРІР°РЅРёРµвЂ¦',
-      'action.rescan': 'РџРѕРІС‚РѕСЂРёС‚СЊ',
-      'action.apply': 'РСЃРїСЂР°РІРёС‚СЊ РІС‹Р±СЂР°РЅРЅРѕРµ',
-      'action.applying': 'РСЃРїСЂР°РІР»РµРЅРёРµвЂ¦',
-      'action.rollback': 'РћС‚РєР°С‚РёС‚СЊ',
-      'action.rollingback': 'РћС‚РєР°С‚вЂ¦',
-      'action.selectAll': 'Р’С‹Р±СЂР°С‚СЊ РІСЃС‘',
-      'score.caption': 'РћС†РµРЅРєР° Р·РґРѕСЂРѕРІСЊСЏ',
-      'metric.files': 'С„Р°Р№Р»РѕРІ',
-      'metric.findings': 'РЅР°С…РѕРґРѕРє',
-      'fix.caption': 'РџСЂРµРґР»Р°РіР°РµРјС‹Рµ РёСЃРїСЂР°РІР»РµРЅРёСЏ',
-      'fix.hint': 'РљР°Р¶РґС‹Р№ РёР·РјРµРЅСЏРµРјС‹Р№ С„Р°Р№Р» СЃРЅР°С‡Р°Р»Р° РєРѕРїРёСЂСѓРµС‚СЃСЏ РІ .dsh-doctor/backups.',
-      'fix.none': 'РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРё РёСЃРїСЂР°РІР»СЏС‚СЊ РЅРµС‡РµРіРѕ.',
-      'fix.nothingSelected': 'Р’С‹Р±РµСЂРёС‚Рµ С…РѕС‚СЏ Р±С‹ РѕРґРЅРѕ РёСЃРїСЂР°РІР»РµРЅРёРµ.',
-      'finding.caption': 'РќР°С…РѕРґРєРё',
-      'finding.none': 'РџРѕРґ СЌС‚РѕС‚ С„РёР»СЊС‚СЂ РЅРёС‡РµРіРѕ РЅРµ РїРѕРґС…РѕРґРёС‚.',
-      'filter.all': 'Р’СЃРµ',
-      'filter.errors': 'РћС€РёР±РєРё',
-      'filter.warnings': 'РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёСЏ',
-      'filter.notes': 'Р—Р°РјРµС‚РєРё',
-      'filter.fixable': 'РСЃРїСЂР°РІРёРјС‹Рµ',
-      'empty.title': 'РЎРєР°РЅРёСЂРѕРІР°РЅРёСЏ РµС‰С‘ РЅРµ Р±С‹Р»Рѕ',
-      'empty.hint': 'Р’РІРµРґРёС‚Рµ Р°Р±СЃРѕР»СЋС‚РЅС‹Р№ РїСѓС‚СЊ Рє РїСЂРѕРµРєС‚Сѓ Рё РЅР°Р¶РјРёС‚Рµ В«РЎРєР°РЅРёСЂРѕРІР°С‚СЊВ».',
-      'backup.latest': 'РџРѕСЃР»РµРґРЅРёР№ Р±СЌРєР°Рї',
-      'backup.none': 'Р‘СЌРєР°РїРѕРІ РїРѕРєР° РЅРµС‚',
-      'notice.fixed': 'РџСЂРёРјРµРЅРµРЅРѕ РёСЃРїСЂР°РІР»РµРЅРёР№: {count}. Р‘СЌРєР°Рї {id}.',
-      'notice.nothing': 'Р¤Р°Р№Р»С‹ РЅРµ РёР·РјРµРЅСЏР»РёСЃСЊ.',
-      'notice.rolledback': 'РћС‚РєР°С‚ {id}: РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРѕ {restored}, СѓРґР°Р»РµРЅРѕ {deleted}.',
-      'error.prefix': 'Р—Р°РїСЂРѕСЃ РЅРµ РІС‹РїРѕР»РЅРµРЅ',
-      'truncated': 'СЃРєР°РЅРёСЂРѕРІР°РЅРёРµ РѕР±СЂРµР·Р°РЅРѕ',
-      'stack': 'РћРїСЂРµРґРµР»РµРЅРѕ',
+      'subtitle': 'Диагностика чтением и обратимые исправления',
+      'path.placeholder': 'Абсолютный путь к проекту, например C:\\projects\\app',
+      'action.scan': 'Сканировать',
+      'action.scanning': 'Сканирование…',
+      'action.rescan': 'Повторить',
+      'action.apply': 'Исправить выбранное',
+      'action.applying': 'Исправление…',
+      'action.rollback': 'Откатить',
+      'action.rollingback': 'Откат…',
+      'action.selectAll': 'Выбрать всё',
+      'score.caption': 'Оценка здоровья',
+      'metric.files': 'файлов',
+      'metric.findings': 'находок',
+      'fix.caption': 'Предлагаемые исправления',
+      'fix.hint': 'Каждый изменяемый файл сначала копируется в .dsh-doctor/backups.',
+      'fix.none': 'Автоматически исправлять нечего.',
+      'fix.nothingSelected': 'Выберите хотя бы одно исправление.',
+      'finding.caption': 'Находки',
+      'finding.none': 'Под этот фильтр ничего не подходит.',
+      'filter.all': 'Все',
+      'filter.errors': 'Ошибки',
+      'filter.warnings': 'Предупреждения',
+      'filter.notes': 'Заметки',
+      'filter.fixable': 'Исправимые',
+      'empty.title': 'Сканирования ещё не было',
+      'empty.hint': 'Введите абсолютный путь к проекту и нажмите «Сканировать».',
+      'backup.latest': 'Последний бэкап',
+      'backup.none': 'Бэкапов пока нет',
+      'notice.fixed': 'Применено исправлений: {count}. Бэкап {id}.',
+      'notice.nothing': 'Файлы не изменялись.',
+      'notice.rolledback': 'Откат {id}: восстановлено {restored}, удалено {deleted}.',
+      'error.prefix': 'Запрос не выполнен',
+      'truncated': 'сканирование обрезано',
+      'stack': 'Определено',
     };
 
     /** Bound at apply time, used before the locale-bound prop is available. */
@@ -241,7 +241,7 @@ window.__ModuleLoader__.load({
 
     function IssueRow(props) {
       const issue = props.issue;
-      const meta = (issue.file ? issue.file + ' В· ' : '') + issue.code + (props.fixable ? ' В· fixable' : '');
+      const meta = (issue.file ? issue.file + ' · ' : '') + issue.code + (props.fixable ? ' · fixable' : '');
       return h('div', { className: 'pdr-issue' },
         h('span', { className: 'pdr-dot pdr-issue-dot pdr-' + issue.severity }),
         h('span', { className: 'pdr-issue-body' },
@@ -317,7 +317,7 @@ window.__ModuleLoader__.load({
           setSelected({});
           setNotice(applied === 0
             ? t('notice.nothing')
-            : t('notice.fixed', { count: applied, id: data.result?.backupId || 'вЂ”' }));
+            : t('notice.fixed', { count: applied, id: data.result?.backupId || '—' }));
         } catch (failure) {
           setError(failure.message);
         } finally {

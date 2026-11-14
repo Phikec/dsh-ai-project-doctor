@@ -1,6 +1,6 @@
 {
   "name": "dsh-ai-project-doctor",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "type": "module",
   "main": "index.js",
   "description": "Diagnose and repair a software project inside DeepSeek Harness: a right-sidebar panel, a project_doctor agent tool, and reversible fixes with automatic backups.",

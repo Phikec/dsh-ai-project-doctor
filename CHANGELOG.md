@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.3.1
+
+Fixes
+- Primary buttons were white-on-white in the dark theme: the panel used
+  `button-primary-fill` with `label-on-color`, which are the same near-white in that
+  theme. **Fix selected** and **Scan** now use the accent fill with the on-colour label
+  and keep their contrast in both themes.
+
+Docs
+- The README shows a real screenshot of the panel (`docs/panel.png`) instead of an
+  illustration.
+
 ## 0.3.0
 
 New
