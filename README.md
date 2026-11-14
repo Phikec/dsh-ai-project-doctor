@@ -9,7 +9,7 @@ A bundle for [DeepSeek Harness](https://github.com/deepseek-ai/dsh): a **Doctor*
 [![Node](https://img.shields.io/badge/node-%E2%89%A520-brightgreen)](https://nodejs.org)
 [![DSH](https://img.shields.io/badge/dsh-0.2.x-6C72FF)](https://github.com/deepseek-ai/dsh)
 
-![The Doctor panel beside a conversation](docs/panel-preview.svg)
+![The Doctor panel: health score, suggested fixes, and findings](docs/panel.png)
 
 ## What it does
 
