@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "AI Project Doctor",
+    "description": "Diagnoses a project directory and repairs common configuration problems. Open the Doctor tab in the right sidebar (or the shield button in the conversation header), enter an absolute project path, and press Scan. The panel shows a 0-100 health score and findings for package.json, scripts, lockfiles, README and LICENSE, .gitignore coverage, exposed .env and key files (names only), and large files. Suggested fixes change files only after every touched file is copied to .dsh-doctor/backups, and Roll back restores the latest backup. The agent reaches the same operations through the project_doctor tool. It never runs shell commands, installs packages, reads .env contents, or writes outside the project."
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "name": "dsh-ai-project-doctor",
+  "version": "0.3.0",
+  "type": "module",
+  "main": "index.js",
+  "description": "Diagnose and repair a software project inside DeepSeek Harness: a right-sidebar panel, a project_doctor agent tool, and reversible fixes with automatic backups.",
+  "license": "MIT",
+  "author": {
+    "name": "Phikec",
+    "url": "https://github.com/Phikec"
+  },
+  "homepage": "https://github.com/Phikec/dsh-ai-project-doctor#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Phikec/dsh-ai-project-doctor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Phikec/dsh-ai-project-doctor/issues"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "cordis",
+    "dsh-bundle",
+    "plugin",
+    "diagnostics",
+    "project-doctor",
+    "code-health"
+  ],
+  "engines": {
+    "node": ">=20",
+    "dsh": ">=0.2.0 <0.3.0"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": ">=0.2.0 <0.3.0"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "tool.js",
+    "audit.js",
+    "fix.js",
+    "server.js",
+    "gitignore.js",
+    "messages.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "docs",
+    "icon.svg",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-sidebar-right",
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  }
+}

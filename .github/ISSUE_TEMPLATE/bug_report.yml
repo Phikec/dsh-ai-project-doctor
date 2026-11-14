@@ -1,0 +1,50 @@
+name: Bug report
+description: Something in the panel, the tool, or a fix does not work as described.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. Please do not paste secret values: the doctor never reads
+        `.env` contents, and this form does not need them either.
+  - type: input
+    id: dsh-version
+    attributes:
+      label: DeepSeek Harness version
+      description: The version shown in Plugins, or the `dsh --version` output.
+      placeholder: 0.2.2-rc.3
+    validations:
+      required: true
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Where did it happen
+      options:
+        - The Doctor panel in the Web client
+        - The project_doctor agent tool
+        - Installing or enabling the bundle
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what you got instead.
+    validations:
+      required: true
+  - type: textarea
+    id: report
+    attributes:
+      label: Doctor output
+      description: Paste the findings list or the tool result, trimmed to the relevant lines.
+      render: text
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I checked the finding against the project by hand.
+          required: false
+        - label: A fix changed files and I have the `.dsh-doctor/backups` folder available.
+          required: false
