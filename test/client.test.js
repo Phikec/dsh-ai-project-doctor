@@ -93,7 +93,18 @@ function buttons(tree, label) {
   return findAll(tree, (node) => node.type === 'button' && textOf(node).includes(label))
 }
 
-const settle = (ms = 60) => new Promise((resolve) => setTimeout(resolve, ms))
+const settle = (ms = 60) => new Promise((resolve) => setTimeout(resolve, ms));
+
+/** Wait until the panel shows the expected state instead of guessing a delay. */
+async function waitFor(check, timeoutMs = 5000) {
+  const started = Date.now();
+  let result = check();
+  while (!result && Date.now() - started < timeoutMs) {
+    await settle(25);
+    result = check();
+  }
+  return result;
+}
 
 async function project(files) {
   const dir = await mkdtemp(path.join(os.tmpdir(), 'doctor-panel-'))
@@ -202,18 +213,18 @@ test('the panel renders, scans, fixes, and rolls back against the real API', asy
     input.props.onChange({ target: { value: dir } })
 
     buttons(panel.tree, 'Scan')[0].props.onClick()
-    await settle()
+    await waitFor(() => /Health score/.test(textOf(panel.tree)))
     assert.match(textOf(panel.tree), /Health score/)
-    assert.match(textOf(panel.tree), /1 file|2 files|\d+ files/)
+    assert.match(textOf(panel.tree), /\d+ files/)
     assert.match(textOf(panel.tree), /Suggested fixes/)
 
     buttons(panel.tree, 'Fix selected')[0].props.onClick()
-    await settle()
+    await waitFor(() => /Applied \d+ fix/.test(textOf(panel.tree)))
     assert.match(textOf(panel.tree), /Applied \d+ fix/)
     assert.match(textOf(panel.tree), /Latest backup/)
 
     buttons(panel.tree, 'Roll back')[0].props.onClick()
-    await settle()
+    await waitFor(() => /Rolled back/.test(textOf(panel.tree)))
     assert.match(textOf(panel.tree), /Rolled back/)
     assert.match(textOf(panel.tree), /No backups yet|Latest backup/)
   } finally {
